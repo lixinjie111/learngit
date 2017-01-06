@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    //跨域请求的处理方法：
+    //第1种：
+   /* $.getJSON("https://api.douban.com/v2/book/1220562?callback=?",{},function(data){
+      console.log(data);
+    });*/
+    //第2种：
+   /* $.get("https://api.douban.com/v2/book/1220562?callback=?",{},function(data){
+        console.log(data);
+    },"jsonp");*/
+    //第3种：
+   /* $.ajax({
+        url:"https://api.douban.com/v2/book/1220562",
+        data:"",
+        dataType:"jsonp",
+        jsonp:"callback",
+        success:function (data) {
+            console.log(data);
+        },
+        timeout:3000
+    })*/
+    //第4种：
+    function jsonpCallback(data){
+        console.log(data);
+    }
+</script>
+<script src="https://api.douban.com/v2/book/1220562?callback=jsonpCallback"></script>
+</body>
+</html>
