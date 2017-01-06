@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="css/commom1.css" type="text/css" rel="Stylesheet" />
+    <link href="css/bootstrap.css" type="text/css" rel="Stylesheet" />
+    <title>新建卷页面</title>
+</head>
+<body>
+<div id="main">
+    <div id="show">
+        <table class="table table-bordered table-striped  table-hover table-responsive">
+            <thead>
+            <tr class="first2">
+                <th class="first">配置项</th>
+                <th >设置参数</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td >卷名</td>
+                <td ><input type="text"  class="form-control" list="car"/>
+                    <datalist id="car">
+                        <option>ABC</option>
+                        <option>ABD</option>
+                        <option>ABE</option>
+                        <option>ABF</option>
+                        <option>北京C</option>
+                        <option>北方</option>
+                        <option>南方</option>
+                        <option>设计</option>
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td >卷类型</td>
+                <td ><input type="radio"/>复制卷
+                    <input type="radio"/>哈希卷
+                    <input type="radio"/>条带卷</td>
+            </tr>
+            <tr>
+                <td > <label  for="inputWarning1">创建路径</label></td>
+                <td >
+
+                    <input type="text" class="form-control" id="inputWarning1">
+
+
+
+                </td>
+            </tr>
+            <tr>
+                <td >创建目标</td>
+                <td >
+                    <input type="checkbox"/>GFS-1
+                    <input type="checkbox"/>GFS-2
+                    <input type="checkbox"/>GFS-3
+                </td>
+            </tr>
+            <tr>
+                <td >Brickd数</td>
+                <td ><input type="text"   class="form-control" placeholder="如果创建卷是复制卷或条带卷则brick必须为节点数的整数倍"/></td>
+            </tr>
+            <tr>
+                <td >传输协议</td>
+                <td ><input type="radio"/>tcp
+                    <input type="radio"/>radma
+                </td>
+            </tr>
+            <tr class="last">
+                <td  colspan="2"><button class="btn btn-primary btn-sm">添加</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
