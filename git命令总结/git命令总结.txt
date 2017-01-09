@@ -1,0 +1,68 @@
+查看版本与创建自己的名称
+git --version
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+
+一.创建版本库：
+$ mkdir learngit
+$ cd learngit
+$ pwd；命令用于显示当前目录。
+$ cat readme.text//查看文件内容
+git init//命令把这个目录变成Git可以管理的仓库
+git add --all
+git commit -m "first commit"
+
+二.时光机穿梭
+1.状态
+git status
+git status --s
+git diff
+2.版本回退
+git log//显示从最近到最远的提交日志，可以查看提交历史，以便确定要回退到哪个版本。
+$ git reset --hard HEAD^||HEAD~100//回退到上一个||100个版本
+git relog//查看命令历史，以便确定要回到未来的哪个版本。
+$ git reset --hard 3628164//或者指定的版本
+git --help
+3.撤销修改
+git checkout -- readme.txt//丢弃工作区的修改：
+$ git reset HEAD readme.txt//把暂存区的修改撤销掉（unstage），重新放回工作区
+4.删除文件
+$ rm test.txt
+$ git checkout -- test.txt//把误删的文件恢复到最新版本
+
+三.远程推送
+1.推送两步
+git remote add origin https://github.com/lixinjie111/git.demo.git
+git push -u origin master
+2.克隆仓库
+$ git clone git@github.com:michaelliao/gitskills.git//克隆一个仓库
+
+四.分支管理
+1.创建于合并分支
+$ git checkout -b dev//创建并切换到dev分支（相当于下面两步）
+git branch dev//创建dev分支
+git checkout dev//切换到dev分支
+git branch//查看当前分支
+git checkout master//切换到主分支
+git merge dev//合并指定分支到当前分支。//合并dev分支到master分支上
+$ git branch -d dev//删除dev分支
+$ git branch -D dev//强行删除dev分支
+2.分支管理策略
+$ git merge --no-ff -m "merge with no-ff" dev//请注意--no-ff参数，表示禁用Fast forward；因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。
+3.bug分支
+$ git stash//把当前工作现场“储藏”起来，等以后恢复现场后继续工作
+$ git stash list//查看刚才的工作现场
+git stash pop//恢复工作的同时把stash内容也删了
+4.多人协作
+$ git remote//查看远程库的信息
+$ git remote -v//显示更详细的信息
+5.多人协作的模式
+（1）git push origin dev//推送自己的修改；
+
+ (2)git pull//如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+
+ (3)git branch --set-upstream dev origin/dev。//如果提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，需要创建。
+
+（4）再用git push origin dev//没有冲突或者解决掉冲突后，推送就能成功！
+
+
