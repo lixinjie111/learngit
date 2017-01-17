@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //Proxy（代理）的实现
+    let person={"name":"张三"};
+    //创建一个代理对象pro，代理person的读写操作。
+    //get方法截取了读取操作，set方法拦截了改写操作
+    var pro=new Proxy(person,{
+        get:function(target,property){//编写处理函数
+            return "李四";
+        }
+    });
+    console.log(pro.name);
+    var bankAccounnt={"RMB":1000,"dollar":0};
+
+    var banker=new Proxy(bankAccounnt,{
+        //编写get处理程序
+        get:function(target,property){
+            if(target[property]>0){
+                return target[property];
+            }else{
+                return "余额不足";
+            }
+        },
+        //编写set处理程序
+        set:function(target,property,value){
+            if(!Number.isInteger(value)){
+                return "请设置正确的数值";
+            }
+            target[property]=value;
+        }
+    });
+    banker.dollar=500;
+   console.log(banker.RMB,banker.dollar);
+    let person1={"name":"老王","age":40,"height":1.8};
+    let pro1=new Proxy(person1,{
+        ownKeys:function(target){
+            return ["name","age"];
+        }
+    })
+    console.log(Object.keys(person1));
+    console.log(Object.keys(pro1));
+    //has()拦截操作
+    var person2={"name":"zhagnsan","age":20}
+    var proxy2=new Proxy(person2,{
+        has:function(target,property){
+            if(target[property]==undefined){
+                return false
+            }else{
+                return true
+            }
+        }
+    })
+    console.log("name" in proxy2)
+    console.log("height" in proxy2)
+    let fn=function(){
+        alert("前端君")
+    }
+    let proxy3=new Proxy(fn,{
+        apply:function(){
+            alert("我是隔壁老王")
+        }
+    })
+    proxy3();
+    //Proxy.revocable()：取消代理。
+</script>
+</body>
+</html>

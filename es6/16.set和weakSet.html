@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //set是一种新的数据结构，可以理解为值得集合。：它的值不会有重复的项。
+    var k=[1,"a","b","c","a",2,1];
+    var s=new Set(k)
+    s.add("is");
+    s.add(7);
+    s.delete("a")
+    s.name="zhagnsan";
+    //s.clear();
+    //s.size
+    console.log(s);
+    console.log(Array.from(s));
+    console.log(s.entries())
+    console.log(s.keys())
+    console.log(s.values())
+    for(let value of s.keys()){
+        console.log(value)
+    };
+  /* for(var i in s){
+        console.log(i)
+    }*/
+</script>
+</body>
+</html>

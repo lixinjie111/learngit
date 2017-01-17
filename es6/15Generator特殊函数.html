@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//generator函数，又称生成器函数；可用来实现异步操作的效果。原理：利用暂停
+// 执行的作用，可以将异步操作的语句写到yield后面，通过next（）方法进行回调。
+
+    //声明一个Hello的Generator函数
+    function*Hello(name){
+        yield `hello ${name}`;//yield代表暂停执行
+    }
+    console.log(Hello("zhangsan").next());
+
+</script>
+</body>
+</html>

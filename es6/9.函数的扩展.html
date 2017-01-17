@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //1.传统写法
+    function person(n,a){
+        let name=n||"zhangsan";
+        let age=a||19;
+        console.log(name);
+        console.log(age);
+    }
+    person()
+    person("lisi",20)
+    //es6新写法
+    function person1(name,age=22){
+         //
+         //
+         // age=33;
+        console.log(name);
+        console.log(age);
+    }
+    person1()
+    person1("wangwu",10)
+  /*  function person1({name="zhagnsan",age=22}){
+        console.log(name);
+        console.log(age);
+    }
+    person1({})*/
+    function demo1({i,j,k}){
+        console.log("姓名:"+i);
+        console.log("身高:"+j);
+        console.log("年龄:"+k);
+    }
+    demo1({"i":"张三",j:"1.72",k:"20"});
+    //2.rest参数:1.获取函数剩下部分的参数。2.可以作为扩展运算符，它一般结合数组使用
+    //把数组的元素用逗号分隔开来，组成一个序列。
+   var res=0;
+    function sum(result,...values){
+        values.forEach(function(i){
+            result+=i;
+        })
+        console.log(result);
+    }
+    sum(res,1,2,3,4);
+    //扩展运算符
+    let arr1=[3,4];
+    function sum1(a,b){
+        return a+b;
+    }
+    sum(...arr1);
+    //箭头函数
+    var kk=0;
+   /* [1,2,3,4,6].forEach(function(e){
+        kk+=e;
+    });*/
+    [1,2,3,4,6].forEach(v=>kk+=v);
+    console.log(kk);
+    var sum2=(m,n)=>{console.log(m+n)}
+    sum2(1,2);
+</script>
+</body>
+</html>

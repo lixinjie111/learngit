@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//1.对象的传统表示法
+    var name="李四";
+    var age=14;
+    var person={
+        "name":name,
+        "age":age,
+         "say":function(){
+           alert(this.name+this.age);
+    }
+    };
+console.log(person)
+//es6的属性写法；
+    var person1={name,age,say(){alert(this.name+this.age)}};
+    console.log(person1);
+//2.属性名可以是表达式；
+    var f="first";
+    var n="Name";
+    var s="say";
+    var h="hello";
+    var person2={
+        [f+n]:"张三",
+        [s+h](){
+    return "你好吗？";
+}
+    }
+    console.log(person2.firstName);
+    console.log(person2.sayhello());
+//3.es6为对象新增的函数；
+    //Object.is();:比较两个值是否严格相等，或者全等。
+    var str=`12`;
+    var num=12;
+    let num1=12;
+    console.log(Object.is(str,num));
+    console.log(Object.is(num,num1));
+    //Object.assign():将源对象的属性值赋值到目标对象上。
+    var target={"a":1};
+    var origin={"b":2,"c":3};
+    let origin1={"d":4,"e":5};
+    console.log(Object.assign(target,origin,origin1));
+    //Object.getPrototypeOf();:获取一个对象的prototype属性
+    function Person3(){
+       this.say1=function(){
+            console.log(111)
+        }
+    }
+    Person3.prototype={
+       say:function(){
+           console.log("hello")
+        }
+    }
+    let allen=new Person3();
+    allen.say();
+   console.log(Object.getPrototypeOf(allen));
+    Object.setPrototypeOf(allen,{say(){console.log("hi")}});
+    allen.say()
+
+
+</script>
+</body>
+</html>

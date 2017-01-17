@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+ //Symbol:解决对象的属性名冲突。第七种数据类型
+//Object.getOwnPropertySymbols()；//获取symbol类型
+//Reflect.ownKeys():获取字符串类型和symbol类型
+//symbol.for()//根据参数名，去全局环境中搜索是否有以该参数为名的symbol值，
+// 有就返回它，没有就以该参数名来创建一个symbol值.
+ //Symbol.keyFor()函数：返回一个被登记在全局环境中的symbol值得key，没有就返回Undefined；
+    let sm=Symbol();
+    console.log(sm);
+    console.log(typeof(sm));
+    let sm1=Symbol("sm1");
+    let sm2=Symbol("sm2");
+    console.log(sm1);//Symbol(sm1);
+    console.log(sm2);//Symbol(sm2);
+    console.log(sm1===sm2);//false
+    let n3=Symbol("name")
+    let n1=Symbol.for("name");
+    let n2=Symbol.for("name");
+    console.log(n1===n2);//true;
+    console.log(n1===n3);//false;
+    let n4=Symbol.for("name");
+    console.log(Symbol.keyFor(n4));//name
+     let n5=Symbol("name");
+     console.log(Symbol.keyFor(n5));//undefined;
+
+
+    let name=Symbol("name");
+    let age=Symbol("age");
+   /* var person={
+        "name":"tom",
+        "age":18
+    }
+   document.write(Object.keys(person)) ;
+    for (let i in person){
+        console.log(i);
+    }*/
+
+ let person={
+     [name]:"tom",
+      age:18
+ };
+ console.log(Object.getOwnPropertySymbols(person));
+ let person1={
+         [name]:"tom",
+         age:231
+ }
+ console.log(Reflect.ownKeys(person1));
+
+</script>
+</body>
+</html>

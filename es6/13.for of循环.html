@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<a href="http://www.baidu.com"><button>click me!</button></a>
+<body>
+<script>
+//for...of:可遍历的对象包括数组，对象，字符串，set和map结构等
+// 具有iterator接口的数据结构。
+    let arr=[1,2,3,4,5];
+    for(let value of arr){
+    console.log(value);
+};
+    for(let index of arr.keys()){
+    console.log(index)
+}
+for(let [value,index] of arr.entries()){
+    console.log(value,index)
+}
+</script>
+</body>
+</html>

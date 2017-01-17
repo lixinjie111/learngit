@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+  //Map跟Object对象很像，但不同的是Key键名的类型不在局限于字符串，
+  // 可以是各种类型的值.Map()方法里面的参数是数组
+let s=new Map([["name","前端君"],["gender",1]]);
+
+    //set()方法：给实例设置一对键值对，返回map实例
+  s.set([1],2);
+  s.set({"name":"zhangsan"},3);
+  s.set(true,4);
+  //s.set(Symbol("name"),5);
+  s.set(null,6);
+  s.set(undefined,7)
+  console.log(s)
+    //get()方法：获取指定键名的键值，返回键值
+  console.log(s.get("name"))
+    //delete():删除指定的键值对，删除成功返回true，返回失败返回false
+    //clear()方法删除所有的键值对。
+  //has()判断是否含有指定的键值对，有返回true，否则返回false
+ /* s.delete("name");
+  s.clear();
+  s.has("name");
+  s.size
+  */
+  //entries():返回实例的键值对遍历器
+  //keys():返回实例所有键名的遍历器
+  //values():返回实例所有键值的遍历器
+  //forEach()
+
+    for(var [key,value] of s.entries()){
+      console.log(key+":"+value);
+  };
+    for(var key of s.values()){
+      console.log(key)
+  }
+  s.forEach(function(key,value){
+      console.log(key+":"+value)
+  })
+
+</script>
+</body>
+</html>

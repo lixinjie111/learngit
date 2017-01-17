@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //请求A开始
+   /* $.ajax({
+            success:function(res1){
+        //请求B开始
+            $.ajax({
+                    success:function(){
+            //请求C开始
+                $.ajax({
+                        success:function(){
+            }
+                })
+        }})
+    }})*/
+    //这种写法代码可读性差，不直观，调试也不方便，给后台维护带来极大不便。
+    // 而且消耗了更多的等待时间
+    //Promise能使我们更合理更规范的进行处理异步操作
+    //Promise基本用法
+    let pro=new Promise(function(resolve,reject){
+        if(true){
+            resolve();
+        }else{
+            reject();
+        }
+    })
+    //promise的三种状态
+    //1.pending:刚刚创建一个Promise实例的时候，表示初始状态
+    //2.fulfiled:resolve方法调用的时候，表示操作成功
+    //3.rejected:reject方法调用的时候，表示操作失败；
+    //完整案例
+    let pro1=new Promise(function(resolve,reject){
+        if(true){
+            resolve("操作成功")
+        }else{
+            reject("操作异常")
+        }
+    })
+    pro1.then(requestA)
+            .then(requestB)
+            .then(requestC)
+            .catch(requestError)
+    function requestA(){
+        console.log("请求A成功")
+        return "请求B，下一个就是你了"
+    }
+    function requestB(res){
+        console.log("上一步的结果"+res)
+        console.log("请求B成功")
+        return "请求C，下一个就是你了"
+    }
+    function requestC(res){
+        console.log("上一步的记过："+res)
+        console.log("请求C成功")
+    }
+    function requestError(){
+        console.log("请求失败")
+    }
+    //Promise.all():接受一个数组作为参数，数组的元素是Promise对象，当参数中的
+    //实例对象的状态都为fulfilled时，promise.all()才会有返回
+    //应用场景：我们执行某个操作，这个操作需要得到多个接口请求回来的数据支持，
+    // 但是这些接口请求之间互不依赖，不需要蹭蹭嵌套
+    let pro2=new Promise(function(resolve){
+        setTimeout(function(){
+            resolve("实例2操作成功")
+        },5000)
+    })
+    let pro3=new Promise(function(resolve){
+        setTimeout(function(){
+            resolve("实例3操作成功")
+        },1000)
+    })
+    Promise.all([pro2,pro3]).then(function(result){
+        console.log(result);
+    })
+    //promise.race()参数中的实例，只要有一个状态发生变化（不管是成功还是异常），他就有返回。
+    let pro4=new Promise(function(resolve){
+        setTimeout(function(){
+            resolve("实例4操作成功")
+        },4000)
+    })
+    let pro5=new Promise(function(reject){
+        setTimeout(function(){
+            reject("实例5操作失败")
+        },2000)
+    })
+    Promise.race([pro4,pro5]).then(function(result){
+        console.log(result);
+    }).catch(function(error){
+        console.log(error);
+    })
+</script>
+</body>
+</html>

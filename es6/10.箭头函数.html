@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //箭头函数中的this指向的是定义时的this而不是执行时的this；
+    var obj={
+        x:100,
+        show:function(){
+        setTimeout(function(){
+            console.log(this.x);//这里的this指window
+        },500);
+    }
+    };
+    obj.show();
+    var obj={
+        "x":100,
+        show:function(){
+            setTimeout(
+                    ()=>{
+                console.log(this.x);
+            },500)
+        }
+    };
+    obj.show()
+    var obg1={
+        y:10,
+    get:function(){
+        setTimeout(
+                ()=>{
+            alert(this.y)
+        },500);
+    }
+    }
+    obg1.get()
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    console.log(isNaN(123));//false;
+    console.log(isNaN(`abc`));//true;
+    console.log(Number.isNaN(`abc`));//false;
+    console.log(isNaN(true));//;false;//不是数字吗？
+    console.log(Number.isNaN(true))//false;//是数字吗？
+    //window.isNaN(),会进行数据类型的转换；
+    //es6:Number.isNaN()只对数值类型有效；非数值一律返回false；
+    //Number,isInteger(32.00)//true
+
+
+//Math.trunc(3.1)结果3，//用于去除一个数的小数部分，返回整数部分
+    //Math.sign()//判断一个数到底是正数，负数，还是0；
+    //Math,cbrt()//计算一个数的立方根
+</script>
+</body>
+</html>

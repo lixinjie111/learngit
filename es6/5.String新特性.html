@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>hello11</li>
+    <li>hello21</li>
+    <li>hello31</li>
+    <li>hello41</li>
+</ul>
+<script src="js/jquery.js"></script>
+<script>
+    //字符串的扩展，
+    // 新特性1.模板字符串${};2.标签模板;3.repeat函数4.includes函数可代替IndexOf()函数;
+    //5.startsWidth();endsWidth();6.codePointAt();7.string.raw();
+    //8.String.fromCodePoint(13407);//结果："吉"
+    var c=2
+    var d=1
+    let name="张三";
+    let kk="小狗";
+    let str=`he is a ${name},he is a ${kk}`;
+    var b=`the result is ${c+d}`;
+    console.log(str);
+    //字符串的扩展，新特性1.模板字符串${};
+    $("ul li:eq("+c+")").css("background","red");
+    //可以定义多行字符串
+    let str1="write once,"+
+                    "run anywhere";
+    let str2=`write once,
+run anywhere`;
+    console.log(str1+"<br/>");
+    console.log(str2);
+    console.log(b);
+    var obj={"a":1,"b":2};
+    function fn(){
+        return 3
+    }
+    let str3=`the result is ${obj.a+obj.b}`;
+    let str4=`the result is ${fn()}`;
+    console.log(str3);
+    console.log(str4);
+
+
+    //2.标签模板
+   let height=1.8
+    function tag(m,n,h){
+        console.log(m);
+        console.log(n);
+        console.log(h);
+    }
+   tag`他叫${name},身高${height}`;
+    let name1=`前端君`;
+    console.log(name1.repeat(3));
+    console.log(name1.includes("君"));
+    var str5="前端";
+    var str6="吉";
+    console.log(str5.length);
+    console.log(str6.length);
+    console.log(str6.charAt(0));
+    console.log(str6.codePointAt());
+    var str7=`hello\nworld`;
+    console.log(String.raw`hello\nworld`)
+</script>
+</body>
+</html>
