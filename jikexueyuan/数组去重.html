@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Array.prototype.unique1=function(){
+        this.sort()
+        var res=[this[0]];
+        for(var i=0;i<this.length;i++){
+            if(this[i]!=res[res.length-1]){
+                res.push(this[i]);
+            }
+        }
+        return res;
+    }
+    //alert(arr.unique1())
+    var k=[1,"a","b","c","a",2,1];
+    Array.prototype.unique=function(){
+        var res=[];
+        for(var i=0;i<this.length;i++){
+            if(res.indexOf(this[i])==-1){
+                res.push(this[i])
+            }
+        }
+        return res;
+    }
+    //alert(k.unique())
+
+    var arr=[10,20,30,40,50]
+    //var arr1=arr.splice(2, 2, 21,22,23);
+    // alert(arr1)//30,40
+     //alert(arr)//10,20,21,22,23,50
+    var arr2=arr.slice(2,4)
+    alert(arr2)//30,40
+    alert(arr)//10,20,30,40,50
+    var str13 = "我bc123";
+    //var rs = str13.charCodeAt(1);//rs  a
+    //console.log(rs);//a
+    console.log(str13.replace("b","12"))
+    var regexp2 = /\./;
+    var data = 'Apple iPad is No.123 cool?';
+    var rs = regexp2.test(data);
+    console.log(rs);
+</script>
+</body>
+</html>

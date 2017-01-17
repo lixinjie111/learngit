@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div">
+    <button id="btn" onclick="demo()">按钮</button>
+    <a href="www.baidu.com" id="aaa">nihao</a>
+</div>
+<script>
+    document.getElementById("btn").addEventListener("click",showType,true);
+    document.getElementById("div").addEventListener("click",showDiv);
+    document.getElementById("aaa").addEventListener("click",showA);
+    function showType(e){
+        alert(e.type)
+        alert(e.target)
+        alert(e.clientX+":"+ e.clientY)
+        alert(e.screenX+":"+ e.screenY)
+        alert(e.pageX+":"+ e.pageY)
+       //e.stopPropagation();//阻止事件冒泡
+    }
+    function showDiv(e){
+        alert("div")
+
+    }
+    function showA(e){
+        alert("kkk")
+       // e.stopPropagation();//阻止事件冒泡
+        e.preventDefault();//阻止事件的默认行为
+
+    }
+</script>
+</body>
+</html>

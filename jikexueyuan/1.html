@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="start()">
+ <div id="time"></div>
+ <button onclick="start()">继续</button>
+ <button onclick="pause()">暂停</button>
+<script type="text/javascript">
+  /* console.log(document.querySelector("#aa").href);
+   var a=document.getElementById("kk");
+   a.className="fanwe"
+    console.log(a.className)*/
+  var now = new Date();
+  //时间字符串
+ /* var hours = now.getHours();
+
+  hours = hours > 9 ? hours : '0'+hours;
+  var minutes = now.getMinutes();
+
+  minutes = minutes > 9 ? minutes : '0'+minutes;
+  var seconds = now.getSeconds();
+
+  seconds = seconds > 9 ? seconds : '0'+seconds;*/
+
+function show(){
+   var now=new Date();
+    var hours=now.getHours();
+    hours = hours>9?hours:"0"+hours;
+    var minutes=now.getMinutes();
+     minutes=minutes>9 ? minutes : '0'+minutes;
+    var seconds=now.getSeconds();
+    seconds=seconds> 9 ? seconds: '0'+seconds;
+      var time=hours+":"+minutes+":"+seconds;
+     document.getElementById("time").innerHTML=time+"日期"+now.toLocaleDateString();
+}
+  var aa="";
+  function start(){
+     show();
+      aa=setInterval(function(){show()},1000)
+  }
+    function pause(){
+        clearInterval(aa);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

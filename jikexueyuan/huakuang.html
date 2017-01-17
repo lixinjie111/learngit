@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        list-style:none;
+    }
+   html,body{
+      height:100%
+    }
+   .meng{
+       height:100%;
+       width: 100%;
+       background: #000;
+       opacity:0.3;
+       position:absolute;
+   }
+    .tan{
+        background: #fff;
+        width: 80%;
+        height:200px;
+        position:fixed;
+        left:10%;
+        top:30%;
+        z-index:50;
+    }
+    .deng{width:100%;height:90px;
+        border-top:1px solid green;
+        border-bottom:1px solid green;
+        margin-top:20%;
+        position:relative;
+        overflow:scroll;
+      }
+    ul{
+        position:absolute;
+        top:-60px;
+        width: 100%;
+        z-index:70;
+        text-align:center;
+        height:1000px;
+
+    }
+    li{height:30px;
+        line-height:30px;}
+</style>
+<body>
+<div class="meng"></div>
+<button onclick="f1()">按钮</button>
+
+<div class="tan">
+    <div class="deng">
+        <ul>
+            <li>20</li>
+            <li>10</li>
+            <li>9</li>
+            <li>8</li>
+            <li>7</li>
+            <li>6</li>
+            <li>20</li>
+            <li>10</li>
+            <li>9</li>
+            <li>8</li>
+            <li>7</li>
+            <li>6</li>
+            <li>20</li>
+            <li>10</li>
+            <li>9</li>
+            <li>8</li>
+            <li>7</li>
+            <li>6</li>
+        </ul>
+        <div style="width: 80%;height:1px;background: #00f;margin-top:30px;position:fixed;"></div>
+        <div style="width: 80%;height:1px;background: #00f;margin-top:60px;position:fixed;"></div>
+    </div>
+</div>
+<script>
+
+        $(function(){
+            $("ul").scroll();
+            $(".deng1").click(function(){
+                alert(99)
+                $("ul").scroll();
+            })
+
+        })
+
+
+</script>
+</body>
+</html>

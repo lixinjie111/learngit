@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function A(name){
+        this.name=name;
+        this.getName=function(){
+            alert(this.name)
+        }
+    }
+    function B(name){
+        A.call(this)
+    }
+    for(var i in A.prototype){
+        B.prototype[i]= A.prototype[i];
+    }
+    B.prototype.fn=function(){
+        alert("abc");
+    };
+    var objB=new B();
+    var objA=new A("zhangsan");
+    for(var i in objA){
+        console.log(i+":"+objB[i])
+    }
+    objB.name="lisi";
+    console.log(objB.name);
+    objB.getName();
+    function C(){
+        B.call(this);
+    }
+    for(var i in B.prototype){
+        C.prototype[i]= B.prototype[i];
+    }
+    var c=new C();
+    for(var i in c){
+        console.log(i+"=="+c[i])
+    }
+
+
+</script>
+</body>
+</html>

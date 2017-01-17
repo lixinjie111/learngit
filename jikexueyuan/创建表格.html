@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    table{
+        width: 100%;
+        border:1px solid red;
+        border-collapse: collapse;
+    }
+    td{
+        border:1px solid red;
+    }
+</style>
+<body>
+
+<button onclick="kk1()">按钮</button>
+<script>
+    var arr1=["姓名","年龄","工资"];
+    for(var g in arr1){
+        console.log(arr1[g])
+    }
+    var arr=[
+        ["姓名","年龄","工资"],
+        {"ename":"tom","age":18,"salary":3000},
+        {"ename":"ton","age":19,"salary":3000},
+        {"ename":"tom","age":20,"salary":3000}
+    ];
+    function kk(){
+        var table=document.createElement("table");
+        for(var j=0;j<arr.length;j++){
+            var tr=document.createElement("tr");
+            for(var mm in arr[j]){
+                var td=document.createElement("td");
+                td.innerHTML=arr[j][mm];
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+       document.body.appendChild(table);
+    }
+    function kk1(){
+        var table=document.createElement("table");
+        for(var j=0;j<arr.length;j++){
+            var tr=table.insertRow();
+            for(var mm in arr[j]){
+                var td=tr.insertCell();
+                td.innerHTML=arr[j][mm];
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+
+        table.deleteRow(2);
+        document.body.appendChild(table);
+    }
+</script>
+</body>
+</html>

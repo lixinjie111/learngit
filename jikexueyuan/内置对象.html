@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body  id="aa" onload="start()">
+<div id="div">
+   <button id="btn" onclick="demo()">按钮</button>
+</div>
+<!-----创建对象----->
+<script>
+    /*****创建对象1********/
+   /*people=new Object();
+    people.name="tom";
+    people.age=12;
+    people.getinfo=function(){
+       return(this.name+":"+this.age)
+   }
+    console.log(people.getinfo());*/
+    /*****创建对象2********/
+ /*   people={name:"top",age:30,getInfo:function(){
+        alert(this.name+":"+this.age)
+    }}
+    console.log(people.getInfo());*/
+    /*****创建对象3/对象模板********/
+   function Stu(a,b){//1.构造函数
+        this.name=a;
+        this.age=b;
+        this.kkk=[1,2,3]
+        this.getInfo=function(){
+          return this.name+":"+this.age
+        }
+    }
+    Stu.prototype.birth=19;//2.给prototype对象添加属性和方法
+    Stu.prototype.ba=function(){
+       return this.name;
+    };
+    var s1=new Stu("tom",30);//3.实例化
+    var s2=new Stu("tom1",40);
+    s2.kkk.push(5)
+    alert(s2.kkk)//4.通过实例化后的对象调用类的方法或者属性
+    alert(s1.birth);
+    alert(s2.ba())
+   // alert(s1.getInfo())
+   // alert(s2.getInfo())
+    /*****String对象********/
+    //var str="hello world";
+    //var str1="hello,world";
+   // alert(str.length);
+    //alert(str.indexOf("world"))
+    //alert(str.match("world1"));
+    //alert(str.replace("world","jikexueyuan"))
+    //alert(str.toUpperCase())
+     //var s=str1.split(",")
+     //alert(s[1])
+    /*****Date对象********/
+  /*  function start(){
+    var date=new Date();
+    var year=date.getFullYear();
+    var h=date.getHours();
+    var m=date.getMinutes();
+    var s=date.getSeconds()
+    m=checkTime(m);
+    s=checkTime(s)
+        document.getElementById("aa").innerHTML=h+":"+m+":"+s
+        setInterval(start,500);
+    }
+    function checkTime(i){
+        if(i<10){
+            i="0"+i;
+        }
+        return i
+    }*/
+    /*****Array对象********/
+  /*  var a=[1,2,5,4,3];
+    *//*降序*//*
+    alert(a.sort(function(b,c){
+        return c-b;
+    })
+    );
+    var p=["a","b"]
+    p.push("c")
+    alert(p);*/
+    /*****Math对象********/
+    //alert(Math.round(2.3))//四舍五入
+    //alert(Math.max(1,2,3,80,50));//最大值
+   // alert(Math.min(1,2,3,80,50));//最小值
+    /*****事件********/
+
+   /* var btn=document.getElementById("btn")
+    btn.addEventListener("click",demo1);
+    btn.addEventListener("click",demo2);
+    function demo1(){
+        alert(111)
+    }
+    function demo2(){
+        alert(112)
+    }*/
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;}
+    #div1{
+       margin-left:50px;
+        width:300px;
+        height: 200px;
+        background: #fcc;
+        position:absolute;
+    }
+
+</style>
+<body>
+<div id="div1"></div>
+<script>
+    //offsetWidth:div的宽度
+   // offsetLeft:div距离左侧的距离
+    window.onload=function() {
+        var oDiv = document.getElementById("div1");
+        oDiv.onmousedown = function (ev) {
+            var oEvent = ev || event;
+            var disX = oEvent.clientX - oDiv.offsetLeft;
+            var disY = oEvent.clientY - oDiv.offsetTop;
+            console.log(disX,disY)
+            console.log(oEvent.offsetX,oEvent.offsetY)
+            document.onmousemove = function (ev) {
+
+                var oEvent = ev || event;
+                oDiv.style.left =oEvent.clientX - disX+"px";
+                oDiv.style.top = oEvent.clientY - disY+"px";
+                console.log(disX,disY)
+                console.log(oEvent.offsetX,oEvent.offsetY)
+            };
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+        };
+
+
+      /*  oDiv.onmousedown=function(ev){
+            var oEvent=ev||event;
+            var disX=oEvent.clientX-oDiv.offsetLeft;
+            var disY=oEvent.clientY-oDiv.offsetTop;
+            console.log(disX,disY)
+            console.log(oEvent.offsetX,oEvent.offsetY)
+            document.onmousemove=function(ev){
+                var oEvent=ev||event;
+                oDiv.style.left=oEvent.clientX-disX+"px";
+                oDiv.style.top= oEvent.clientY-disY+"px";
+            };
+            document.onmouseup=function(){
+                document.onmousemove=null;
+                document.onmouseup=null;
+            };
+        };*/
+    };
+
+</script>
+</body>
+</html>

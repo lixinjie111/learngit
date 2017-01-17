@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<script>
+    var a=1;
+    var b=2;
+    var c=0;
+    c=a;//c=1
+    a=b;//a=2
+    b=c;//b=1
+   console.log(a+":"+b)
+    for(var i=1;i<=9;i++){  //i控制行变化
+        for(var j=1;j<=i;j++){ //j控制列变化
+            document.write(i+"×"+j+"="+(i*j)+"&nbsp;");
+        }
+        document.write("<br />");
+    }
+    for(var i=1;i<=7;i++){
+        for(var j=1;j<=i;j++){
+            document.write("*");
+        }
+        document.write("<br />");
+    }
+    var aaa={"name":"tom","age":19}
+    for(var i in aaa){
+        console.log(i+"*******"+aaa[i])
+        console.log(aaa["name"])
+    }
+    var str="vist hello"
+    document.write(str.search(/Hello/i));
+    for(var i in window){
+        document.write("属性名"+i+"属性值"+window[i]+"<br/>")
+    }
+window.onscroll=function(){
+
+}
+    function checkflag(){
+
+    }
+</script>
+</body>
+</html>
