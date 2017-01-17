@@ -1,0 +1,20 @@
+mongoimport --db itcast --collection teacher --drop --file c:\Users\lixinjie\Desktop\1.json
+
+db.student.insert({"name":"nihao"})
+db.student.find({"score.shuxue":{$gt:80},"age":"9"})且
+db.student.find({$or:[{"age":9},{"age":13}]});
+db.student.find().sort({"score.yuwen"：1,"age":-1});
+db.studnt.find({"hobby":"睡觉"})
+db.studnt.find({"hobby":"睡觉"}).explain();// 检索过程 
+db.student.createIndex({"name":1})//索引的建立
+db.student.createIndex({"name":1},{unique:ture})//索引唯一,不能相同
+
+db.teacher.drop();
+
+db.student.update({"name":"小明"},{$set:{"age":20}})
+db.student.update({}{$set:{"age":44},{multi:true}})
+db.student.remove({"age":30},{justOne:true})
+db.student.remove({})
+
+mongod --storageEngine mmapv1 --dbpath E:\nodejs\shuoshuo
+
