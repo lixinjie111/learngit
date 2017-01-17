@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+  <div id="example"></div>
+  <script type="text/babel">
+      var HelloMassage=React.createClass({
+          render:function(){
+            return <div>Hello,{this.props.id}</div>;
+          }
+      })
+      ReactDOM.render(
+              <HelloMassage name="jone" num="123" htmlFor="kkk" id="aaa"/>,
+               document.getElementById("example")
+      )
+
+  </script>
+  </body>
+</html>
