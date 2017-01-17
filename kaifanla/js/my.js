@@ -1,0 +1,40 @@
+angular.module('myApp',['ng','ngRoute','ngAnimate'])
+    .controller('startCtrl',function($scope,$location){
+        $scope.name='tom'
+        $scope.jump=function(){
+            $location.path('/main')
+        }
+    })
+    .controller('mainCtrl',function($scope,$location){
+        $scope.jump1=function(){
+            $location.path('/detail')}
+    })
+    .controller('detailCtrl',function($scope,$location){
+        $scope.jump2=function(){
+            $location.path('/order')}
+    })
+    .controller('orderCtrl',function($scope,$location){
+        $scope.jump=function(){
+            $location.path('/myorders')}
+    })
+    .controller('myordersCtrl',function($scope,$location){
+        $scope.jump5=function(){
+            $location.path('/start')}
+    })
+   .config(function($routeProvider){
+        $routeProvider
+            .when('/start',
+            {templateUrl:'tpl/start.html',controller:'startCtrl'})
+            .when('/main',
+            {templateUrl:'tpl/main.html',controller:'mainCtrl'})
+            .when('/detail',
+            {templateUrl:'tpl/detail.html',controller:'detailCtrl'})
+            .when('/order',
+            {templateUrl:'tpl/order.html',controller:'orderCtrl'})
+            .when('/myorders',
+                {templateUrl:'tpl/myorders.html',controller:'myordersCtrl'})
+            .otherwise(
+            {redirectTo:'/start'})
+
+    })
+
