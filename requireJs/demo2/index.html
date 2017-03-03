@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+<!--第二种解决方案（加载模块如：jquery）-->
+    <script data-main="./config.js" src="./js/require.js"></script>
+
+
+</head>
+<body>
+<div ng-controller="myCtrl">
+    {{name}}
+</div>
+<button class="btn btn-lg btn-success">年后</button>
+<i class="fa fa-camera-retro fa-5x"></i> fa-5x
+<i class="fa fa-commenting-o " aria-hidden="true"></i>
+<i class="fa fa-address-book" aria-hidden="true"></i>
+<!--<script src="./js/require.js"></script>
+<script src="config.js"></script>//第三种解决方法-->
+<script>
+    /*第三种解决方案*/
+
+  /*  require(['jquery','angular'],function($,angular){
+        $('body').css({'backgroundColor':'red'});
+
+    })*/
+</script>
+</body>
+</html>
